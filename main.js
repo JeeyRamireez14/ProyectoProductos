@@ -13,24 +13,28 @@ function getData() {
 
 function createCards(products) {
   divData.innerHTML = ""; 
-  let cardsHtml = ""; 
+  let cardsHtml = `<div class="row">`; 
 
- 
   products.forEach((product) => {
     let card = `
-      <div class="card mb-3" style="width: 18rem;">
-        <img src="${product.image}" class="card-img-top" alt="${product.name}">
-        <div class="card-body">
-          <h5 class="card-title">${product.name}</h5>
-          <p class="card-text">${product.description}</p>
-          <p class="card-text"><strong>Price:</strong> $${product.price}</p>
+      <div class="col-md-3 mb-3"> <!-- Columna que ocupa 1/4 de la fila -->
+        <div class="card" style="width: 100%;">
+          <img src="${product.image}" class="card-img-top" 
+          alt="${product.name}">
+          <div class="card-body">
+            <h5 class="card-title">${product.name}</h5>
+            <p class="card-text">${product.description}</p>
+            <p class="card-text"><strong>Price:</strong> $${product.price}</p>
+          </div>
         </div>
       </div>
     `;
     cardsHtml += card; 
   });
 
+  cardsHtml += `</div>`; 
   divData.innerHTML = cardsHtml; 
 }
 
 getData();
+
